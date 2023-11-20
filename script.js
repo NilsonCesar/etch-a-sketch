@@ -1,5 +1,6 @@
 let makeDivGrid = (n) => {
     let grid = document.querySelector('.sketch');
+    grid.textContent = '';
     for(let i = 0; i < n; i++) {
         let line = document.createElement('div');
         line.classList.add('sketch-line');
@@ -14,7 +15,7 @@ let makeDivGrid = (n) => {
     }
 }
 
-makeDivGrid(24);
+makeDivGrid(16);
 
 let dbClickActived = false;
 let color = 'pink';
@@ -30,13 +31,25 @@ let checkPaintingPoss = (e) => {
         changeItemColor(e, color)
 };
 
-const gridItems = document.querySelectorAll('.sketch-item');
 
+let setItemActions = () => {
+    const gridItems = document.querySelectorAll('.sketch-item');
 
+    gridItems.forEach((item) => {
+        item.addEventListener('dblclick', e => activeHoverPainting(e, color));
+        item.addEventListener('mouseover', e => checkPaintingPoss(e, color));
+        item.addEventListener('mouseup', () => dbClickActived = false)
+        item.addEventListener('click', e => changeItemColor(e, color));
+    });
+}
 
-gridItems.forEach((item) => {
-    item.addEventListener('dblclick', e => activeHoverPainting(e, color));
-    item.addEventListener('mouseover', e => checkPaintingPoss(e, color));
-    item.addEventListener('mouseup', () => dbClickActived = false)
-    item.addEventListener('click', e => changeItemColor(e, color));
+setItemActions();
+
+let button = document.querySelector('.user-grid-button');
+
+button.addEventListener('click', () => {
+    let input = document.querySelector('.user-grid-size');
+    let sizeGrid = parseInt(input.value);
+    makeDivGrid(sizeGrid);
+    setItemActions();
 })
