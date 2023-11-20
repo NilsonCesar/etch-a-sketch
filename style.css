@@ -1,0 +1,16 @@
+.sketch {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.sketch-line {
+    display: flex;
+}
+
+.sketch-item {
+    background-color: black;
+}
