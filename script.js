@@ -1,4 +1,7 @@
+let actN = 16;
+
 let makeDivGrid = (n) => {
+    actN = n;
     let grid = document.querySelector('.sketch');
     grid.textContent = '';
     for(let i = 0; i < n; i++) {
@@ -15,7 +18,7 @@ let makeDivGrid = (n) => {
     }
 }
 
-makeDivGrid(16);
+makeDivGrid(actN);
 
 let dbClickActived = false;
 let color = 'pink';
@@ -45,11 +48,17 @@ let setItemActions = () => {
 
 setItemActions();
 
-let button = document.querySelector('.user-grid-button');
+let buttonUserGrid = document.querySelector('.user-grid-button');
 
-button.addEventListener('click', () => {
+buttonUserGrid.addEventListener('click', () => {
     let input = document.querySelector('.user-grid-size');
     let sizeGrid = parseInt(input.value);
-    makeDivGrid(sizeGrid);
+    makeDivGrid(Math.min(sizeGrid, 100));
     setItemActions();
-})
+});
+
+let clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', () => {
+    makeDivGrid(actN);
+    setItemActions();
+});
