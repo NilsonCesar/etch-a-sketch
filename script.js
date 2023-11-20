@@ -53,6 +53,7 @@ buttonUserGrid.addEventListener('click', () => {
     let input = document.querySelector('.user-grid-size');
     let sizeGrid = parseInt(input.value);
     makeDivGrid(Math.min(sizeGrid, 100));
+    input.value = '';
     setItemActions();
 });
 
