@@ -1,4 +1,8 @@
 let actN = 16;
+let dbClickActived = false;
+let color = 'black';
+let buttonUserGrid = document.querySelector('.user-grid-button');
+let clearButton = document.querySelector('.clear');
 
 let makeDivGrid = (n) => {
     actN = n;
@@ -19,9 +23,6 @@ let makeDivGrid = (n) => {
 }
 
 makeDivGrid(actN);
-
-let dbClickActived = false;
-let color = 'pink';
 
 let changeItemColor = (e) => e.target.style.backgroundColor = color;
 let activeHoverPainting = (e) => {
@@ -48,8 +49,6 @@ let setItemActions = () => {
 
 setItemActions();
 
-let buttonUserGrid = document.querySelector('.user-grid-button');
-
 buttonUserGrid.addEventListener('click', () => {
     let input = document.querySelector('.user-grid-size');
     let sizeGrid = parseInt(input.value);
@@ -57,7 +56,6 @@ buttonUserGrid.addEventListener('click', () => {
     setItemActions();
 });
 
-let clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', () => {
     makeDivGrid(actN);
     setItemActions();
