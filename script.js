@@ -5,7 +5,6 @@ let makeDivGrid = (n, m) => {
         line.classList.add('sketch-line');
         for(let j = 0; j < m; j++) {
             let item = document.createElement('div');
-            item.textContent = 'teste';
             item.classList.add('sketch-item');
             line.appendChild(item);
         }
