@@ -1,11 +1,12 @@
-let makeDivGrid = (n, m) => {
+let makeDivGrid = (n) => {
     let grid = document.querySelector('.sketch');
     for(let i = 0; i < n; i++) {
         let line = document.createElement('div');
         line.classList.add('sketch-line');
-        for(let j = 0; j < m; j++) {
+        for(let j = 0; j < n; j++) {
             let item = document.createElement('div');
             item.classList.add('sketch-item');
+            item.style.width = '100%';
             line.appendChild(item);
         }
 
@@ -13,7 +14,7 @@ let makeDivGrid = (n, m) => {
     }
 }
 
-makeDivGrid(16, 16);
+makeDivGrid(24);
 
 let dbClickActived = false;
 let color = 'pink';
