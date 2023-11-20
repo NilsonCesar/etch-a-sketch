@@ -3,6 +3,7 @@ let dbClickActived = false;
 let color = 'black';
 let buttonUserGrid = document.querySelector('.user-grid-button');
 let clearButton = document.querySelector('.clear');
+let buttonUserColor = document.querySelector('.user-color-button');
 
 let makeDivGrid = (n) => {
     actN = n;
@@ -61,3 +62,9 @@ clearButton.addEventListener('click', () => {
     makeDivGrid(actN);
     setItemActions();
 });
+
+buttonUserColor.addEventListener('click', () => {
+    let input = document.querySelector('.user-color-option');
+    color = input.value;
+    setItemActions();
+})

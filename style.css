@@ -33,7 +33,7 @@ button {
     width: 100px;
 }
 
-.user-grid-option {
+.user-option {
     display: flex;
     flex-direction: column;
     align-items: center;
